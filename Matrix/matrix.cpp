@@ -1,4 +1,4 @@
-#include "mult.h"
+#include "matrix.h"
 
 namespace linear {
 	matrix::matrix(){
@@ -51,10 +51,11 @@ namespace linear {
 	}
 
 	void matrix::set(const int* array){
-		unsigned int FLOOR = 1;
+		// Сделать проверку по длине массива
+		unsigned int FLOOR = 0;
 		for (unsigned int _ind_row{}; _ind_row < this->ROW; _ind_row++) {
 			for (unsigned int _ind_column{}; _ind_column < this->COLUMN; _ind_column++) {
-				this->VALUES[_ind_row][_ind_column] = array[_ind_row * FLOOR + _ind_column];
+				this->VALUES[_ind_row][_ind_column] = array[_ind_column * FLOOR + _ind_column];
 			}
 			FLOOR++;
 		}
