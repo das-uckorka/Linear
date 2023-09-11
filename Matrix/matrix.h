@@ -1,26 +1,26 @@
-#include <iostream>
+#pragma once
+
 #include <vector>
+#include <iostream>
 
-namespace linear {
-	class matrix {
-	private:
-		unsigned int ROW;
-		unsigned int COLUMN;
-		int** VALUES;
-	public:
-		matrix();
-		matrix(unsigned int, unsigned int);
-		matrix(const matrix&);
+  class matrix{
+  private:
+    unsigned int ROW;
+    unsigned int COLUMN;
+    int* VALUES;
+  public:
 
-		void set(const std::vector < std::vector<int>>&);
-		void set(const int*);
-		void print() const;
+    matrix();
+    matrix(unsigned int, unsigned int);
+    matrix(const matrix&);
+    ~matrix();
 
-		matrix operator+ (const matrix&);
-		matrix operator- (const matrix&);
+    void set(std::vector<int>&);
+    void print() const;
+    unsigned int size() const;
 
-		~matrix();
-	};
+  	matrix operator+ (const matrix&);
+  	matrix operator- (const matrix&);
+  	matrix operator* (const matrix&);
 
-
-}
+  };
